@@ -1,7 +1,8 @@
 # Assignment Solution
 
 ## 1. Task-1
-![](./DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task1Output.png)
+
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task1Output.png)
 ```javascript
 const li= document.querySelectorAll('ul>li');
 const ul= document.querySelector('ul');
@@ -15,7 +16,7 @@ newli1.innerText="Hire Me";
 ul.appendChild(newli1);
 ```
 ## Task-2
-![](./DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task2Output.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task2Output.png)
 ```javascript
 const li= document.querySelectorAll('ul>li');
 const ul= document.querySelector('ul');
@@ -29,7 +30,7 @@ input.placeholder="Search My Project";
 
 ```
 ## Task-3
-![](./DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task3Output.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task3Output.png)
 ```javascript
 const li= document.querySelectorAll('ul>li');
 const ul= document.querySelector('ul');
@@ -41,14 +42,14 @@ ul.appendChild(newli);
 
 ```
 ## Task-4
-![](./DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task4Output.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task4Output.png)
 ```javascript
 const img= document.querySelector('img')
 img.src="https://th.bing.com/th/id/OIP.Zz0nVELryfmBS9strggNFgAAAA?pid=ImgDet&rs=1";
 
 ```
 ## Task-5
-![](./DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task5Output.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20Assignment%202.0%201%2C2%2C3/firstAssignmentImage/task5Output.png)
 ```javascript
 const maindiv= document.querySelector('.hero-right-section-btns');
 const btn= document.createElement('button');
@@ -57,7 +58,7 @@ btn.innerText="Support Me";
 
 ```
 ## 2. Task-1
-![](./DOM%20Assignment%202.0%201%2C2%2C3/secondAssignmentImage/task1Output.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20Assignment%202.0%201%2C2%2C3/secondAssignmentImage/task1Output.png)
 ```javascript
 let accordian = document.querySelectorAll(".accordian h3");
 accordian.forEach((element) => {
@@ -78,7 +79,7 @@ accordian.forEach((e)=>{
 
 ```
 ## Task-2
-![](./DOM%20Assignment%202.0%201%2C2%2C3/secondAssignmentImage/task2Output.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20Assignment%202.0%201%2C2%2C3/secondAssignmentImage/task2Output.png) 
 ```javascript
 const maincontainer=document.querySelector('.accordian-wrapper');
 
@@ -114,7 +115,7 @@ accordian.forEach((element) => {
 
 ``` 
 ## 3.  Task-1
-![](./DOM%20Assignment%202.0%201%2C2%2C3/thirdAssignmentImage/task1Output.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20Assignment%202.0%201%2C2%2C3/thirdAssignmentImage/task1Output.png) 
 ```javascript
 const form=document.querySelectorAll('form');
 
@@ -134,7 +135,7 @@ thirdinput.forEach((e)=>{
 });
 ```
 ## 4. Task-1
-![](./04_DOM%20Project/04_DOM%20Project/Output/DOM%20P1%20SS.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/04_DOM%20Project/04_DOM%20Project/Output/DOM%20P1%20SS.png)
 ```javascript
 const mainContainer=document.querySelector('.slide-container');
 mainContainer.style.flexWrap="nowrap";
@@ -153,7 +154,7 @@ card.forEach((e,i)=>{
 });
 ```
 ## 5.  Task-1
-![](./05_DOM%20Project/05_DOM%20Project/Output/DOM%20P2%20SS.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/05_DOM%20Project/05_DOM%20Project/Output/DOM%20P2%20SS.png)
 
 ```javascript
 
@@ -183,7 +184,7 @@ cardParent.appendChild(cardClone);
 
 ```
 ## 6.  Task-1
-![](./06_DOM%20Project/06_DOM%20Project/Output/DOM%20P3%20SS-1.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/06_DOM%20Project/06_DOM%20Project/Output/DOM%20P3%20SS-1.png)
 
 
 ```javascript
@@ -192,7 +193,7 @@ const headerLogo= document.querySelector('header').firstChild;
 headerLogo.src="./assets/ineuron-logo.png";
 ```
 ## Task-2
-![](./06_DOM%20Project/06_DOM%20Project/Output/DOM%20P3%20SS-2.png)
+![](./DOM%20Assignments%202.0%20Batch%20copy/06_DOM%20Project/06_DOM%20Project/Output/DOM%20P3%20SS-2.png)
 
 ```javascript
 //Add $10
@@ -212,7 +213,7 @@ logoParent.appendChild(div);
 
 ```
 ## 7. Task-1
-![](./DOM%20P7/DOM%20P7/ass7.1-after.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20P7/DOM%20P7/ass7.1-after.png) 
 ```javascript
 const atags= document.querySelectorAll('a');
 atags.forEach((e)=>{
@@ -225,7 +226,7 @@ atags.forEach((e)=>{
 
 ```
 ## Task-2
-![](./DOM%20P7/DOM%20P7/ass7.2-after.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20P7/DOM%20P7/ass7.2-after.png) 
 ```javascript
 let remove=localStorage.getItem('remove');
 
@@ -255,7 +256,7 @@ btn.addEventListener('click',function(e){
 
 ```
 ## 8.  Task-1
-![](./DOM%20P8/DOM%20P8/ass8.1-after.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20P8/DOM%20P8/ass8.1-after.png) 
 ```javascript
 const aside= document.querySelector('aside');
 aside.addEventListener('mouseover',(e)=>{
@@ -263,14 +264,14 @@ aside.addEventListener('mouseover',(e)=>{
 })
 ```
 ## Task-2
-![](./DOM%20P8/DOM%20P8/ass8.2-after.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20P8/DOM%20P8/ass8.2-after.png) 
 ```javascript
 const body= document.querySelector('body');
 body.style.backgroundImage="none";
 
 ```
 ## Task-3
-![](./DOM%20P8/DOM%20P8/ass8.3-after.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20P8/DOM%20P8/ass8.3-after.png) 
 ```javascript
 const btn= document.querySelector('.navbar-toggler');
 const nav=document.querySelector('.collapse');
@@ -285,14 +286,14 @@ btn.addEventListener('click', (e)=>{
 
 ```
 ## 9.  Task-1
-![](./DOM%20P9/DOM%20P9/ass9.1-after.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20P9/DOM%20P9/ass9.1-after.png) 
 ```javascript
 const title= document.querySelectorAll('.title');
  title[1].style.color="red";
 
 ```
 ## Task-2
-![](./DOM%20P9/DOM%20P9/ass9.2-after.png) 
+![](./DOM%20Assignments%202.0%20Batch%20copy/DOM%20P9/DOM%20P9/ass9.2-after.png) 
 ```javascript
 const btn= document.querySelector('.add-to-cart');
 btn.addEventListener('mouseover',(e)=>{
