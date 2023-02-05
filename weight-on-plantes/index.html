@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Solar System: Document Object Model:30 Days Of JavaScript</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
+	<link rel="icon" type="svg" sizes="32x32" href="./images/favicon.svg">
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body class="bg-[url('./images/galaxy.gif')] flex flex-col justify-center items-center min-h-[100vh] min-w-[375px] max-w-[1440px]">
+	<header class="my-8">
+		<h1 class="text-white text-[2rem]">Calculate a weight of an object on a planet</h1>
+
+		<input type="number" id="mass" placeholder="Mass in Kilogram"  />
+		<select>
+			<option value='none'>--select planet-- </option>
+			
+		</select>
+		<button>Calculate weight</button>
+
+	</header>
+	<main>
+		<div class="flex-container">
+			<div class="flex-item image">
+				<img class="h-[300px]" src='./images/earth.png' class="planet-image" />
+			</div>
+			<div class="flex-item description"></div>
+
+		</div>
+
+
+	</main>
+
+
+
+
+
+	<script src="./scripts/main.js"></script>
+</body>
+
+</html>
