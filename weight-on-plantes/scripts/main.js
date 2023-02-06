@@ -7,10 +7,23 @@ const plantes=
 };
 
 const dropdown=document.querySelector('select');
-const img=document.querySelector('.default-img');
+// const img=document.querySelector('.default-img');
 const input=document.querySelector('input');
 const btn=document.querySelector('button');
-const result=document.querySelector('.resultdiv');
+
+const main= document.querySelector('main');
+
+
+//creating talwind classs
+
+///create image
+
+function createImage(planet){
+  const img1=document.createElement('img');
+  img1.src=`./images/${planet}.png`;
+  img1.className='h-[150px] lg:h-[250px]';
+  return img1;   
+}
 
 
 for (const k in plantes) {  
@@ -20,42 +33,35 @@ for (const k in plantes) {
     opt.value=key;
     dropdown.appendChild(opt);
 }
-const showmsg=document.querySelector('p');
+
+
+if(main.hasChildNodes()){
+    // const img1=document.createElement('img');
+    // img1.src="./images/earth.png";
+    const img=createImage('earth');
+    main.appendChild(img); 
+    
+}
 
 dropdown.addEventListener('change', (e)=>{
    let x=dropdown.value;
+   while (main.hasChildNodes()) {
+    main.removeChild(main.firstChild);
+  }
+
+  const img1=createImage('earth');
+
+
    if(x=='none'){
-    img.src="./images/earth.png";
-
-    if(img.classList.contains('hidden')){
-        img.classList.remove('hidden');
-        showmsg.classList.add('hidden');
-    }
-    
+    img1.src="./images/earth.png"; 
    }else{
-    img.src=`./images/${x}.png`;
+    img1.src=`./images/${x}.png`;
+   }
+   main.appendChild(img1);
+   
     
-    if(img.classList.contains('hidden')){
-        img.classList.remove('hidden');
-        
-    }
-    showmsg.classList.add('hidden');
-   }   
+       
 });
-
-const correctresult=document.querySelector('.correct-result');
-const falseresult=document.querySelector('.false-result');
-
-
-
-const resultimg=document.querySelector('.result-img');
-
-// console.log(resultimg);
-
-
-
-
-
 
 
 btn.addEventListener('click',()=>{
@@ -63,64 +69,51 @@ btn.addEventListener('click',()=>{
     let mass= input.value;
     
     if(x == 'none' || mass== '' ){
-        console.log("Please enter mass or Select Planet");
+        console.log("Please enter mass or Select Planet"); 
         
-        
-        if(correctresult.classList.contains('hidden')){
-            img.classList.add('hidden');
-            falseresult.innerText="Please enter mass and Select Planet";
-            falseresult.classList.remove('hidden');
-        }else{
-            correctresult.classList.add('hidden');
-            img.classList.add('hidden');
-            falseresult.innerText="Please enter mass and Select Planet";
-            falseresult.classList.remove('hidden');
-        }
-        
-        
-        
+        // removing all child elements
+          while (main.hasChildNodes()) {
+            main.removeChild(main.firstChild);
+          }
 
+        let falseresult=document.createElement('div');
+        falseresult.innerText="Please enter mass and Select Planet";
+        falseresult.className="border border-[red] p-4"
+        main.appendChild(falseresult);
+
+        
+        
+        
     }else{
         let weight= Math.round(plantes[x] * parseInt(mass)) ;
     
         console.log(weight);
-        let showMessage=`The weight of object on ${x.toUpperCase()}
-        is ${weight} N`;
-
-        if(falseresult.classList.contains('hidden')){
-
-            // img.classList.add('hidden');
-
-            // resultimg.src=`./images/${x}.png`;
-            // console.log(resultimg);
-            if(showmsg.classList.contains('hidden')){
-                showmsg.classList.remove('hidden');
-            }
-            showmsg.innerText=showMessage;
-
-            correctresult.classList.remove('hidden');
-        }else{
-            falseresult.classList.add('hidden');
-            if(showmsg.classList.contains('hidden') && img.classList.contains('hidden')){
-                showmsg.classList.remove('hidden');
-                img.classList.remove('hidden');
-            }
-            showmsg.innerText=showMessage;
-
-            correctresult.classList.remove('hidden');
-        }
+        let showMessage=`The weight of object on ${x.toUpperCase()} `;
         
+        while (main.hasChildNodes()) {
+            main.removeChild(main.firstChild);
+          }
 
+        let trueresult=document.createElement('div');
+        trueresult.className="flex flex-col justify-center items-center lg:flex-row gap-8 lg:text-[1.5rem]";
+        let img=createImage(x);
+        let div= document.createElement('div');
+        div.className="flex flex-col justify-center items-center";
+        let divwt=document.createElement('div');
+        divwt.className="lg:h-[7rem] lg:w-[7rem] h-[4rem] w-[4rem]  rounded-[50%] bg-[#212121] flex flex-col justify-center items-center "
+        divwt.innerText=` ${weight} N`;
+        let p=document.createElement('p');
+        p.innerText=showMessage;
+        div.appendChild(p);
+        div.appendChild(divwt);
+        trueresult.appendChild(img);
+        trueresult.appendChild(div);
 
-        // calculatedWeight.innerText=showMessage;
-        // correctresult.appendChild(calculatedWeight);
-
-        // result.removeChild(falseresult);
-        // result.appendChild(correctresult);
-
-
+        // trueresult.innerText=showMessage;
+        main.appendChild(trueresult);
         
-
+        
+        
     }
     
 })

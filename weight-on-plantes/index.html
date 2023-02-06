@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Solar System: Document Object Model:30 Days Of JavaScript</title>
+	<meta name="description" content="Calculate weight of object on different planet">
+	<title>Solar System:Claculate Weight</title>
 
 	<!-- fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap" rel="stylesheet">
@@ -18,34 +19,20 @@
 
 
 <body class="bg-[url('./images/galaxy.gif')] bg-center flex flex-col justify-center font-[Montserrat] items-center  min-w-[375px] max-w-[1440px] px-[5%] ">
-	<h1 class="text-white text-[1.2rem] mt-8 text-center">Calculate a weight of an object on a planet</h1>
-	<section class="my-8 flex flex-col justify-center items-center gap-4 ">
-		<input class="p-2" type="number" id="mass" placeholder="Mass in Kilogram"  />
-		<select class="p-2">
+	<h1 class="text-white text-[1.2rem] mt-8 text-center lg:text-[2rem]">Calculate a weight of an object on a planet</h1>
+	
+	<section class="my-8 flex flex-col justify-center items-center gap-4 lg:flex-row ">
+		<input class="p-2 h-12 rounded" type="number" id="mass" placeholder="Mass in Kilogram"  />
+		<select class="p-2 h-12 rounded">
 			<option value='none'>select planet </option>
 			
 		</select>
-		<button class="bg-[white] p-2">Calculate weight</button>
+		<button class="bg-[white] p-2 h-12 rounded ">Calculate weight</button>
 
 	</section>
-	<main class="text-[white] flex flex-col justify-center items-center ">
+	<main class="text-[white] text-center flex flex-col justify-center items-center  w-[70%] ">
 
-		<img class="h-[150px] default-img" src='./images/earth.png' alt="Please Select Planet from list" class="planet-image" />
-
-
-		<div class="resultdiv">
-			<div class=" hidden correct-result flex flex-col justify-center items-center ">
-
-				<!-- <img class="h-[150px] result-img" src='./images/earth.png' class="planet-image" /> -->
-				
-                <p class="text-center"></p>
-				
-			</div>
-			<div class="hidden false-result">
-                  sdgdg
-			</div>
-
-		</div>
+		
 
 
 	</main>
