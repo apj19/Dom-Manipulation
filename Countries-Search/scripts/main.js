@@ -36,7 +36,7 @@ data.forEach((e) => {
 
 sort.addEventListener('click',()=>{
     input.value='';
-    message.innerText=" ";
+    message.innerText="";
     while (main.hasChildNodes()) {
         main.removeChild(main.firstChild);
     }
