@@ -7,16 +7,31 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 	<title>Document</title>
 </head>
-<body class="min-w-[375px] max-w-[1440px] flex flex-col justify-center items-center bg-[#F0EEED] p-[5%]">
-	<h1>Countries data </h1>
+<body class="min-w-[375px] max-w-[1440px] flex flex-col justify-center items-center bg-[#F0EEED] ">
+	<!-- <h1>Countries data </h1> -->
 
-	<section>
+	<section class="bg-[url('https://w.wallhaven.cc/full/4y/wallhaven-4yvyvd.jpg')] bg-center bg-cover w-[100%] h-[400px]  flex flex-col justify-center items-center">
+		<!-- <img src="./images/wallhaven-lmqygy.jpg" alt="" srcset=""> -->
+		<!-- <img src="./images/cardbg.png" alt="" srcset=""> -->
 
-		<input class="mb-8" type="text" id="input" value="">
+		<h1 class=" text-white text-[1.5rem] md:text-[2.5rem] tracking-[0.2em]">WORLD COUNTRIES LIST</h1>
+
+		<p class="text-white text-[0.8rem]  md:text-[1.2rem] mb-4">Total number of countries 193</p>
+
+		<div class="mb-4 flex flex-col md:flex-row md:gap-4">
+			<button class="rounded  bg-[#609EA2] p-2 text-white text-[0.8rem]  md:text-[1.2rem] mb-2" id="startwithword">Starting word</button>
+			<button class="rounded  bg-[#609EA2] p-2 text-white text-[0.8rem]  md:text-[1.2rem] mb-2" id="searchwithword">search with word</button>
+			<button class="rounded  bg-[#609EA2] p-2 text-white text-[0.8rem]  md:text-[1.2rem] mb-2"  id="sort">sort</button>
+
+		</div>
+
+		<p class="text-white mb-4" id="message"> </p>
+
+		<input class="mb-8 rounded md:w-[30%] h-[30px] rounded-[15px] text-center" type="text" id="input" placeholder="Search Country">
 
 	</section>
 
-	<main class="flex flex-wrap justify-start items-center gap-4">
+	<main class="flex flex-wrap justify-start items-center gap-4 p-[5%]">
 
 	</main>
 
