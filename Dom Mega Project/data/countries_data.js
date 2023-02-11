@@ -80,6 +80,7 @@ export const countries_data =[
 	},
 	{
 			"name": "Antarctica",
+			"capital": "Saint temp John's",
 			"languages": [
 					"English",
 					"Russian"
@@ -333,6 +334,7 @@ export const countries_data =[
 	},
 	{
 			"name": "Bouvet Island",
+			"capital": "Sainttrmw John's",
 			"languages": [
 					"Norwegian",
 					"Norwegian Bokmål",
@@ -367,6 +369,7 @@ export const countries_data =[
 	},
 	{
 			"name": "United States Minor Outlying Islands",
+			"capital": "Minor",
 			"languages": [
 					"English"
 			],
@@ -1117,6 +1120,7 @@ export const countries_data =[
 	},
 	{
 			"name": "Heard Island and McDonald Islands",
+			"capital": "McDonald",
 			"languages": [
 					"English"
 			],
@@ -1496,6 +1500,8 @@ export const countries_data =[
 	},
 	{
 			"name": "Macao",
+			"capital": "Macao",
+			
 			"languages": [
 					"Chinese",
 					"Portuguese"

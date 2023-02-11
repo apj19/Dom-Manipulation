@@ -1,14 +1,19 @@
 import { countries_data  } from "../data/countries_data.js";
 
-console.log(countries_data[0]);
-const maindata=countries_data;
-const currentdata=[];
+// console.log(countries_data[0]);
+const maindata=[...countries_data];
+let currentdata=[...countries_data];
 const main=document.querySelector('main');
 const graphsection=document.getElementById('graphsection');
 const search=document.getElementById('search');
 
-const initaldata=countries_data; 
-///cfunction for showing countries card
+const name= document.getElementById('name');
+const capital=document.getElementById('capital');
+const population=document.getElementById('population');
+
+const initaldata=[...countries_data];
+const message=document.getElementById('message'); 
+///function for showing countries card
 
 
 function addCountry(imglink,capital,population,language,name){
@@ -68,12 +73,26 @@ function refreshmain(data){
     
 }
 
-refreshmain(maindata);
+// console.log(maindata[0]);
+refreshmain(countries_data);
+// countries_data[0].population
+function sorteddata(data){
+    // data.sort((a,b)=>{
+    //         return  b.population - a.population;
+    //     });
 
-initaldata.sort((a,b)=>{
-    return  b.population - a.population;
-});
-//calculating maxpopulation
+        data.sort(function (str1, str2) {
+            return str2.population - str1.population;
+            });
+
+    return data;
+
+}
+
+// initaldata.sort((a,b)=>{
+//     return  b.population - a.population;
+// });
+// //calculating maxpopulation
 let populationArray=[];
 for (const key in initaldata) { 
     populationArray=populationArray.concat(initaldata[key].population);
@@ -111,28 +130,65 @@ function addPopulation(country,population,maxPopulation){
 
 }
 
-let worldtotal=addPopulation('World',maxPopulation,maxPopulation);
-graphsection.appendChild(worldtotal);
 
-for (let i = 0; i < 10; i++) {
-    let newdiv= addPopulation(initaldata[i].name, initaldata[i].population, maxPopulation)
-    graphsection.appendChild(newdiv);
-       
+function refreshgraphsection(alldata,length){
+
+    while (graphsection.hasChildNodes()) {
+        graphsection.removeChild(graphsection.firstChild);
+    }
+    let worldtotal=addPopulation('World',maxPopulation,maxPopulation);
+    graphsection.appendChild(worldtotal);
+
+    if(length>10){
+        length=10;
+    }
+    for (let i = 0; i < length; i++) {
+        let x=sorteddata(alldata);
+        let newdiv= addPopulation(x[i].name, x[i].population, maxPopulation)
+        graphsection.appendChild(newdiv);
+           
+    }
+
 }
+
+refreshgraphsection(initaldata,initaldata.length);
+
+
+
+
 
 ///adding search functionality
 
 search.addEventListener('input',()=>{
+   
+   
+    let count=0;
+    if(search.value==""){
+        
+    refreshmain(countries_data);
+    refreshgraphsection(initaldata,initaldata.length);
+    message.innerText=""
+    
+    
+   }else{
+
     while (main.hasChildNodes()) {
         main.removeChild(main.firstChild);
     }
     
-    
+    currentdata=[];
     maindata.forEach((e)=>{
-        currentdata=[];
-        if(e.name.toUpperCase().startsWith(search.value.toUpperCase() )){
+        
+        if(e.name.toUpperCase().startsWith(search.value.toUpperCase())
+        || e.capital.toUpperCase().startsWith(search.value.toUpperCase())
+        
+        
+        
+        
+        
+        ){
             currentdata.push(e);
-            
+            count++;
             let card=addCountry(e.flag,e.capital,e.population,e.languages,e.name)
             main.appendChild(card);
             // count=count+1;
@@ -140,5 +196,47 @@ search.addEventListener('input',()=>{
         }
     });
 
+    message.innerText=`${count} countires matched your search criteria`;
+
+    refreshgraphsection(currentdata,currentdata.length);
+
+   }
+   
+   
+    
+
+
+});
+
+name.addEventListener('click',()=>{
+    
+   message.innerText="Sorting current result by Name";
+    currentdata.sort(function (str1, str2) {
+        return str1.name.localeCompare(str2.name);
+        });
+    
+    refreshmain(currentdata);
+    
+    
+});
+
+capital.addEventListener('click',()=>{
+
+    message.innerText="Sorting current result by Capital";
+
+    currentdata.sort(function (str1, str2) {
+        return str1.capital.localeCompare(str2.capital);
+        });
+
+    refreshmain(currentdata);
+
+});
+population.addEventListener('click',()=>{
+    message.innerText="Sorting current result by Population";    
+    currentdata.sort((a,b)=>{
+                return  b.population - a.population;
+            })
+
+    refreshmain(currentdata);
 
 });
