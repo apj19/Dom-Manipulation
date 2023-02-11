@@ -29,6 +29,8 @@ const data= [
 // let a="akshay";
 // a.toLowerCase()
 const main= document.querySelector('main');
+const message=document.getElementById('message');
+message.className="text-center text-[red]";
 
 
 function addPlayer(fname,lname,country,score,index){
@@ -83,7 +85,7 @@ function addPlayer(fname,lname,country,score,index){
         data.forEach((e,index)=>{
             if(e.fname==fname){
                 
-                data[index].score+=5;
+                data[index].score += 5;
             }
             
         });
@@ -102,7 +104,7 @@ function addPlayer(fname,lname,country,score,index){
                 if(data[index].score<5){
                     data[index].score=0;
                 }else{
-            data[index].score-=5;
+                      data[index].score-=5;
 
                 }
 
@@ -168,20 +170,20 @@ addplayerbtn.addEventListener('click', (e)=>{
     firstname.value == '' || lastname.value =='' ||
     country.value == '' ||  score.value==''
    ){
-    let p=document.createElement('p');
-    p.innerText="Please select all fileds";
-    p.className="text-center text-[red]"
-    while (main.hasChildNodes()) {
-        main.removeChild(main.firstChild);
-    }
-    main.appendChild(p);
+    // let p=document.createElement('p');
+    message.innerText="Please select all fileds";
+    // p.className="text-center text-[red]";
+    // 
+    
+    // main.appendChild(p);
    }else{
+    message.innerText="";
        let newplayer={  };
 
             newplayer.fname=firstname.value;
             newplayer.lname=lastname.value;
             newplayer.country=country.value;
-            newplayer.score=score.value;
+            newplayer.score=parseInt(score.value) ;
             data.push(newplayer);
             refreshmain(data);
 
