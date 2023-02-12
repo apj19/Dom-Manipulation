@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://kit.fontawesome.com/092bfc665f.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" type="svg" sizes="32x32" href="./favicon.svg">
+    <title>Weather</title>
+</head>
+<body class="min-w-[375px] max-w-[1440px] min-h-[100vh]
+bg-[whitesmoke] px-[5%] font-[Roboto] flex justify-center items-center">
+
+<main class=" rounded-[2rem] border w-[80%] h-[500px]  drop-shadow-xl px-24 py-8
+flex gap-16  bg-gradient-to-r from-sky-500 to-indigo-500 text-[white]
+">
+
+    <section class="w-[30%]  ">
+        <!-- onsubmit="getData(event) -->
+        <form class="flex justify-center items-center gap-2"  >
+        <input type="text" required placeholder="Search City...."   class=" block  px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+     
+       "/>
+       <button type="button" class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <img class="w-36" src="" alt="" id="leftimg">
+
+        <p id="weather"></p>
+
+        <h2 class="text-[2rem]" id="temp"></h2>
+        <p id="weekday"></p>
+        <p class="border-b" id="currenttime"></p>
+
+        <img src="" alt="" srcset="" id="flag">
+    </section>
+
+    <section>
+        2
+    </section>
+    
+
+</main>
+    
+</body>
+<script src="./script.js"></script>
+</html>
