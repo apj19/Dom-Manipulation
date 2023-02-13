@@ -14,14 +14,26 @@
     <title>Weather</title>
 </head>
 <body class="min-w-[375px] max-w-[1440px] min-h-[100vh]
-bg-[whitesmoke] px-[5%] font-[Roboto] flex justify-center items-center">
+ px-[5%] font-[Roboto] flex justify-center items-center bg-[#d6d7db]">
 
-<main class=" rounded-[2rem] border w-[80%] h-[500px]  drop-shadow-xl px-24 py-8
-flex gap-16  bg-gradient-to-r from-sky-500 to-indigo-500 text-[white]
+<!-- <h1 class="text-[white]">Weather </h1> -->
+ 
+<!-- bg-gradient-to-r from-[#fc5c7d] to-[#6a82fb] -->
+<main class="relative  rounded-[2rem]  w-[100%] h-[500px]  px-12 py-8
+flex   
+font-[Roboto]
 ">
 
-    <section class="w-[30%]  ">
-        <!-- onsubmit="getData(event) -->
+    <div class="absolute  left-0 top-0 w-[100%] h-[100%] flex flex-col justify-center items-center " id="loader">
+        <!-- <svg class="animate-bounce w-6 h-6 fill-[whitesmoke]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>  -->
+        <label class="animate-bounce tracking-widest">Loading...</label>
+        
+    </div>
+
+ 
+  
+
+    <section class=" w-[30%] bg-[white] rounded-tl-[2rem] rounded-bl-[2rem]  flex flex-col justify-center items-center  ">   
         <form class="flex justify-center items-center gap-2"  >
         <input type="text" required placeholder="Search City...."   class=" block  px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
@@ -38,13 +50,47 @@ flex gap-16  bg-gradient-to-r from-sky-500 to-indigo-500 text-[white]
         <p id="weekday"></p>
         <p class="border-b" id="currenttime"></p>
 
-        <img src="" alt="" srcset="" id="flag">
+        <p id="state"></p>
+        <p id="country"></p>
+
     </section>
 
-    <section>
-        2
+    <section class=" w-[70%] bg-[#f7f6f9] rounded-tr-[2rem] rounded-br-[2rem]  px-12 py-8 flex flex-col ">
+
+        <div>
+            <h2 class="mb-4">Weather Forcast</h2>
+            <div id="forcastcard" class="flex gap-2 ">
+
+                <!-- <div class=" py-2 flex flex-col justify-center items-center w-28 rounded-[1rem] bg-[#ffff]">
+
+                    <p>Sun</p>
+                    <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="" srcset="">
+                  
+                        <p>
+                            <span class="after:content-['°']">15</span>
+                            <span class="opacity-50 after:content-['°']">10</span>
+                        
+                        </p>
+                        
+                   
+
+                </div> -->
+
+
+
+
+            </div>
+        </div>
+        <div>
+            <h2>Todays Highlight</h2>
+            <div>
+                mejor parammeters
+            </div>
+        </div>
+
     </section>
-    
+
+   
 
 </main>
     
