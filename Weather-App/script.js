@@ -1,8 +1,11 @@
 const url="https://api.weatherapi.com/v1/current.json?key=bd49ad5b728c4495bad110051231102";
-const forcasturl="https://api.weatherapi.com/v1/forecast.json?key=bd49ad5b728c4495bad110051231102"
+const forcasturl="https://api.weatherapi.com/v1/forecast.json?key=bd49ad5b728c4495bad110051231102";
+const astroUrl="https://api.weatherapi.com/v1/astronomy.json?key=bd49ad5b728c4495bad110051231102";
 
 
 let jsondata;
+const inputcity= document.getElementById('inputcity');
+const searchcity= document.getElementById('searchcity');
 const leftimg=document.getElementById('leftimg');
 const temp=document.getElementById('temp');
 const weekday=document.getElementById('weekday');
@@ -12,6 +15,13 @@ const weather= document.getElementById('weather');
 const state=document.getElementById('state');
 const country = document.getElementById('country');
 const forcastcard= document.getElementById('forcastcard');
+const uvindex= document.getElementById('uvindex');
+const humidity= document.getElementById('humidity');
+const wind= document.getElementById('wind');
+const city= document.getElementById('city');
+const sunrise = document.getElementById('sunrise');
+const sunset = document.getElementById('sunset');
+
 
 function getweekday(date){
 
@@ -55,15 +65,18 @@ function forcastCard(date,imgsrc,maxtempindegree,mintempindegree){
 }
 
 
-let callapi = async ()=>{
+const getData = async (currentcity)=>{
+
+// event.preventDefault();
+console.log(inputcity.value);
     
-let data= await fetch(`${url}&q=pune`);
+let data= await fetch(`${url}&q=${currentcity}`);
 
 
  jsondata=await data.json();
 
 
- loader.classList.add('hidden');
+//  loader.classList.add('hidden');
  
 // console.log(jsondata);
 leftimg.src=jsondata.current.condition.icon;
@@ -75,11 +88,25 @@ let currentweekday=new Date(jsondata.location.localtime);
 weekday.innerText= getweekday(currentweekday);
 currenttime.innerText=currentweekday.toLocaleTimeString();
 
+city.innerText=jsondata.location.name;
 weather.innerText=jsondata.current.condition.text;
 state.innerText=jsondata.location.region;
 country.innerText=jsondata.location.country;
+uvindex.innerText=jsondata.current.uv;
+humidity.innerText= jsondata.current.humidity;
+wind.innerText= jsondata.current.wind_kph;
 
-let forcastdata= await fetch(`${forcasturl}&q=karad&days=7`);
+
+
+let astrodata= await fetch(`${astroUrl}&q=${currentcity}`);
+let astrodatajson= await astrodata.json();
+
+sunrise.innerText= astrodatajson.astronomy.astro.sunrise;
+sunset.innerText= astrodatajson.astronomy.astro.sunset;
+
+
+
+let forcastdata= await fetch(`${forcasturl}&q=${currentcity}&days=7`);
 
 let focastdatajson= await forcastdata.json();
 console.log(focastdatajson.forecast.forecastday);
@@ -107,13 +134,22 @@ forcastdstsarray.forEach((e)=>{
 
 
 };
+
+getData("karad");
+searchcity.addEventListener('click',()=>{
+
+    
+        getData(inputcity.value);
+    
+
+});
 // event.preventDefault();
-callapi();
+// callapi();
 // console.log("akshay");
 
-const xmas95 = new Date("2023-02-12 9:43");
-const options = { weekday: "long" };
-console.log(new Intl.DateTimeFormat("en-US", options).format(xmas95));
+// const xmas95 = new Date("2023-02-12 9:43");
+// const options = { weekday: "long" };
+// console.log(new Intl.DateTimeFormat("en-US", options).format(xmas95));
 
-console.log(new Date("2023-02-12 9:43").toLocaleTimeString());
-;
+// console.log(new Date("2023-02-12 9:43").toLocaleTimeString());
+// ;
