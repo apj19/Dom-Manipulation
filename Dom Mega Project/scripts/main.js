@@ -61,6 +61,7 @@ function addCountry(imglink,capital,population,language,name){
 
 function refreshmain(data){
 
+    // console.log(data);
     while (main.hasChildNodes()) {
         main.removeChild(main.firstChild);
     }
@@ -163,38 +164,33 @@ search.addEventListener('input',()=>{
    
    
     let count=0;
-    if(search.value==""){
-        
-    refreshmain(countries_data);
-    refreshgraphsection(initaldata,initaldata.length);
-    message.innerText=""
+    if(!search.value){
+        // console.log("inside if loop");   
+        refreshmain(countries_data);
+        refreshgraphsection(initaldata,initaldata.length);
+        message.innerText="";
     
     
    }else{
+    // console.log("inside else loop");
 
-    while (main.hasChildNodes()) {
-        main.removeChild(main.firstChild);
-    }
-    
-    currentdata=[];
-    maindata.forEach((e)=>{
-        
-        if(e.name.toUpperCase().startsWith(search.value.toUpperCase())
-        || e.capital.toUpperCase().startsWith(search.value.toUpperCase())
-        
-        
-        
-        
-        
-        ){
-            currentdata.push(e);
-            count++;
-            let card=addCountry(e.flag,e.capital,e.population,e.languages,e.name)
-            main.appendChild(card);
-            // count=count+1;
-            
+        while (main.hasChildNodes()) {
+            main.removeChild(main.firstChild);
         }
-    });
+    
+        currentdata=[];
+        maindata.forEach((e)=>{
+            
+            if(e.name.toUpperCase().startsWith(search.value.toUpperCase())
+            || e.capital.toUpperCase().startsWith(search.value.toUpperCase())
+            ){
+                currentdata.push(e);
+                count++;
+                let card=addCountry(e.flag,e.capital,e.population,e.languages,e.name)
+                main.appendChild(card);
+                // count=count+1;  
+            }
+        });
 
     message.innerText=`${count} countires matched your search criteria`;
 
@@ -210,7 +206,10 @@ search.addEventListener('input',()=>{
 
 name.addEventListener('click',()=>{
     
-   message.innerText="Sorting current result by Name";
+    if(!search.value){
+        currentdata=[...countries_data];
+    }
+    message.innerText="Sorting current result by Name";
     currentdata.sort(function (str1, str2) {
         return str1.name.localeCompare(str2.name);
         });
@@ -221,7 +220,11 @@ name.addEventListener('click',()=>{
 });
 
 capital.addEventListener('click',()=>{
+    if(!search.value){
+        currentdata=[...countries_data];
+    }
 
+    
     message.innerText="Sorting current result by Capital";
 
     currentdata.sort(function (str1, str2) {
@@ -232,6 +235,9 @@ capital.addEventListener('click',()=>{
 
 });
 population.addEventListener('click',()=>{
+    if(!search.value){
+        currentdata=[...countries_data];
+    }
     message.innerText="Sorting current result by Population";    
     currentdata.sort((a,b)=>{
                 return  b.population - a.population;
