@@ -21,6 +21,7 @@ const wind= document.getElementById('wind');
 const city= document.getElementById('city');
 const sunrise = document.getElementById('sunrise');
 const sunset = document.getElementById('sunset');
+const error= document.getElementById('error');
 
 
 function getweekday(date){
@@ -36,20 +37,21 @@ function forcastCard(date,imgsrc,maxtempindegree,mintempindegree){
 
 
     let maindiv= document.createElement('div');
-    maindiv.className="py-2 flex flex-col justify-center items-center w-28 rounded-[1rem] bg-[#ffff]";
+    maindiv.className=" w-[100%] px-8 rounded  grid  grid-cols-3 border-b  justify-around items-center  bg-[#ffff]";
 
     let day= document.createElement('p');
     day.innerText=getweekday(date);
     maindiv.appendChild(day);
 
     let img= document.createElement('img');
+    img.className=" w-8 h-8 block"
     img.src=imgsrc;
     maindiv.appendChild(img);
 
     let temp= document.createElement('p');
     
     let maxtemp= document.createElement('span');
-    maxtemp.className="after:content-['°']";
+    maxtemp.className="after:content-['°/']";
     maxtemp.innerText=maxtempindegree;
     temp.appendChild(maxtemp);
 
@@ -67,16 +69,24 @@ function forcastCard(date,imgsrc,maxtempindegree,mintempindegree){
 
 const getData = async (currentcity)=>{
 
-// event.preventDefault();
-console.log(inputcity.value);
-    
-let data= await fetch(`${url}&q=${currentcity}`);
+    if(loader.classList.contains('hidden')){
+        loader.classList.remove('hidden');
+    }
+
+    error.innerText="";
+    let data= await fetch(`${url}&q=${currentcity}`);
+
+    if(data.status != 200){
+        error.innerText="City not found";
+        currentcity="karad";
+         data= await fetch(`${url}&q=${currentcity}`);
+    }
 
 
- jsondata=await data.json();
+    jsondata=await data.json();
 
 
-//  loader.classList.add('hidden');
+ 
  
 // console.log(jsondata);
 leftimg.src=jsondata.current.condition.icon;
@@ -109,28 +119,17 @@ sunset.innerText= astrodatajson.astronomy.astro.sunset;
 let forcastdata= await fetch(`${forcasturl}&q=${currentcity}&days=7`);
 
 let focastdatajson= await forcastdata.json();
-console.log(focastdatajson.forecast.forecastday);
+
+loader.classList.add('hidden');
+// console.log(focastdatajson.forecast.forecastday);
 
 const forcastdstsarray=focastdatajson.forecast.forecastday;
+
 
 forcastdstsarray.forEach((e)=>{
     let newcard= forcastCard(e.date,e.day.condition.icon,e.day.maxtemp_c,e.day.mintemp_c);
     forcastcard.appendChild(newcard);
 })
-
-// for (let i = 0; i < 7; i++) {
-    
-//     let newcard= forcastCard();
-//     // console.log(newcard);
-//     forcastcard.appendChild(newcard);
-    
-// }
-
-
-
-
-
-// console.log(flagjson[0].flags.png);
 
 
 };
@@ -138,18 +137,13 @@ forcastdstsarray.forEach((e)=>{
 getData("karad");
 searchcity.addEventListener('click',()=>{
 
+    while (forcastcard.hasChildNodes()) {
+        forcastcard.removeChild(forcastcard.firstChild);
+    }
+
+
     
         getData(inputcity.value);
     
 
 });
-// event.preventDefault();
-// callapi();
-// console.log("akshay");
-
-// const xmas95 = new Date("2023-02-12 9:43");
-// const options = { weekday: "long" };
-// console.log(new Intl.DateTimeFormat("en-US", options).format(xmas95));
-
-// console.log(new Date("2023-02-12 9:43").toLocaleTimeString());
-// ;

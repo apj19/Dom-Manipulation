@@ -14,49 +14,53 @@
     <title>Weather</title>
 </head>
 <body class="min-w-[375px] max-w-[1440px] min-h-[100vh]
- px-[5%] font-['Open_Sans'] flex justify-center items-center bg-[#f8fafc]">
+ px-[5%] font-['Open_Sans'] flex justify-center items-center bg-[#f5f5f5]">
 
 <!-- <h1 class="text-[white]">Weather </h1> -->
  
 <!-- bg-gradient-to-r from-[#fc5c7d] to-[#6a82fb] -->
-<main class="relative  rounded-[2rem]  w-[100%] h-[500px] mt-8   md:px-12 
-flex  flex-col md:flex-row 
+<!-- flex  flex-col md:flex-row -->
+<main class="relative  rounded-[2rem]  w-[100%]  my-8  
+  bg-[white] grid grid-cols-1 md:grid-cols-3 
 
 ">
 
-    <!-- <div class="absolute  left-0 top-0 w-[100%] h-[100%] flex flex-col justify-center items-center " id="loader">
+    <div class="absolute backdrop-blur-md  left-0 top-0 w-[100%] h-[100%] flex flex-col justify-center items-center " id="loader">
         
         <label class="animate-bounce tracking-widest">Loading...</label>
         
-    </div> -->
+    </div>
 
  
   
 
-    <section class="w-[100%] py-4 md:w-[30%] bg-[white]  md:rounded-tl-[2rem] md:rounded-bl-[2rem]  flex flex-col justify-center items-start border-b  "> 
+    <section class="w-[100%] py-4 md:py-8  md:rounded-tl-[2rem] md:rounded-bl-[2rem]  flex flex-col justify-center md:justify-around items-center border-b  "> 
 
-        <form  class="flex justify-center items-center gap-2 px-6"  >
+        <form  class="flex justify-center items-center gap-2 "  >
         <input id="inputcity"  type="text" required placeholder="Search City...."   class=" block  px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
      
        "/>
-       <button id="searchcity" type="button" class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"><i class="fa-solid fa-magnifying-glass"></i></button>
+       <button id="searchcity" type="button" class="inline-block px-4  py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
+        <p class="text-red-500" id="error"></p>
 
-        <div class="flex w-[100%] justify-around items-center">
+        <div class="flex md:flex-col w-[100%] justify-around items-center">
 
-            <div class="flex flex-col justify-center items-start">
-                <h2 class="text-[2rem] text-blue-500 after:content-['°c']" id="temp"></h2>
-                <p id="city"></p>
-    
-            </div>
-            
             <div class="flex flex-col justify-center items-center">
                 <img class="w-32" src="" alt="" id="leftimg">
-    
-            <p id="weather" class="text-blue-500" ></p>
+     
+                <p id="weather" class="text-blue-500" ></p>
+     
+             </div>
+            <div class="flex flex-col justify-center items-start md:items-center">
+                <h2 class="text-[2rem] text-blue-500 after:content-['°c']" id="temp"></h2>
+                <p  id="city"></p>
+               
     
             </div>
+            
+            
             
 
         </div>
@@ -65,77 +69,138 @@ flex  flex-col md:flex-row
 
         
 
-        
-
-        <div class="flex gap-8 mb-2 px-6 mt-4">
-            <p id="weekday"></p>
-        <p class="" id="currenttime"></p>
+        <div class="flex w-[100%] justify-around items-center ">
+            <div class="mb-2  mt-4">
+                <p id="weekday"></p>
+                <p id="state"></p>
+             </div>
+             
+             <div class=""> 
+                 <p class="" id="currenttime"></p>
+                 <p id="country"></p>
+             </div>
 
         </div>
-        
-        <div class="flex gap-4 px-6">
-            <p id="state"></p>
-        <p id="country"></p>
 
-        </div>
+        
         
 
     </section>
 
-    <section class="w-[100%]  md:w-[70%] bg-[#f7f6f9] rounded-tr-[2rem] rounded-br-[2rem] py-4 px-8 flex flex-col ">
+    <section class="w-[100%] md:py-8   bg-[#e7e6e6]   py-4 px-8 flex flex-col ">
 
-        <div class="hidden">
-            <h2 class="mb-4">Weather Forcast</h2>
-            <div id="forcastcard" class="flex gap-2 ">
-
-
-
-
-            </div>
-        </div>
+        
 
         <div>
-            <h2>Todays Highlight</h2>
-            <div class=" flex justify-around items-center mt-4">
-                <div class=" flex flex-col justify-center items-center">
-                    <img class="w-12 h-12" src="./icons8-sunrise-64.png" alt="" srcset="">
-                    Sunrise 
-                    <p id="sunrise"></p>
-
+            <h2 class="mt-2 text-blue-500">Todays Highlight</h2>
+            <!-- <div class="lg:flex lg:justify-evenly lg:items-center">
+                <div class=" flex justify-around items-center mt-4">
+                    <div class=" flex flex-col justify-center items-center">
+                        <img class="w-12 h-12" src="./icons8-sunrise-64.png" alt="" srcset="">
+                        Sunrise 
+                        <p id="sunrise"></p>
+    
+                    </div>
+    
+                    <div class=" flex flex-col justify-center items-center">
+                    <img class="w-12 h-12"  src="./icons8-sunset-48.png" alt="" srcset="">
+                    Sunset 
+                    <p id="sunset"></p>
+    
+    
+                    </div>
+                    
+                </div>
+                <div class="flex justify-between items-center mt-4 w-[100%] lg:w-auto">
+                    <div class="flex flex-col justify-between items-center text-[0.8rem]">
+                        <svg class="w-8 h-8 fill-[#ffd405]"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zm64 0c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256z"/></svg>
+                         
+                        UV Index
+                        <p class="text-[0.8rem]" id="uvindex"></p>
+                    </div>
+                    <div class="flex flex-col justify-between items-center text-[0.8rem]">
+                        <svg class="w-8 h-8 fill-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M192 480c-88.4 0-160-71.6-160-160c0-16.2 6.1-39.2 18.3-67.5c11.9-27.6 28.5-57.5 46.6-86.8c35.9-58 76.4-110.9 94.5-133.7h1.3c18.1 22.9 58.6 75.7 94.5 133.7c18.1 29.2 34.6 59.1 46.6 86.8C345.9 280.8 352 303.8 352 320c0 88.4-71.6 160-160 160zM0 320C0 426 86 512 192 512s192-86 192-192c0-91.2-130.2-262.3-166.6-308.3C211.4 4.2 202.5 0 192.9 0h-1.8c-9.6 0-18.5 4.2-24.5 11.7C130.2 57.7 0 228.8 0 320zm112 0c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
+                        Humidity
+                        <p class="text-[0.8rem]" id="humidity"></p>
+                    </div>
+                    <div class="flex flex-col justify-between items-center text-[0.8rem]">
+                        <svg class="w-8 h-8 fill-gray-400"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z"/></svg>
+                        Wind
+                        <p id="wind" class="after:content-['km/hr'] text-[0.8rem]"></p>
+                    
+                    </div>
                 </div>
 
-                <div class=" flex flex-col justify-center items-center">
-                <img class="w-12 h-12"  src="./icons8-sunset-48.png" alt="" srcset="">
-                Sunset 
-                <p id="sunset"></p>
 
+            </div> -->
 
-                </div>
+            <div class="grid grid-cols-6 gap-4 mt-8 lg:grid-cols-2">
                 
-            </div>
-            <div class="flex justify-between items-center mt-4 w-[100%]">
-                <div class="flex flex-col justify-between items-center text-[0.8rem]">
-                    <svg class="w-8 h-8 fill-[#ffd405]"
-                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zm64 0c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256z"/></svg>
-                     
-                    UV Index
-                    <p class="text-[0.8rem]" id="uvindex"></p>
-                </div>
-                <div class="flex flex-col justify-between items-center text-[0.8rem]">
-                    <svg class="w-8 h-8 fill-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M192 480c-88.4 0-160-71.6-160-160c0-16.2 6.1-39.2 18.3-67.5c11.9-27.6 28.5-57.5 46.6-86.8c35.9-58 76.4-110.9 94.5-133.7h1.3c18.1 22.9 58.6 75.7 94.5 133.7c18.1 29.2 34.6 59.1 46.6 86.8C345.9 280.8 352 303.8 352 320c0 88.4-71.6 160-160 160zM0 320C0 426 86 512 192 512s192-86 192-192c0-91.2-130.2-262.3-166.6-308.3C211.4 4.2 202.5 0 192.9 0h-1.8c-9.6 0-18.5 4.2-24.5 11.7C130.2 57.7 0 228.8 0 320zm112 0c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
-                    Humidity
-                    <p class="text-[0.8rem]" id="humidity"></p>
-                </div>
-                <div class="flex flex-col justify-between items-center text-[0.8rem]">
-                    <svg class="w-8 h-8 fill-gray-400"
-                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z"/></svg>
-                    Wind
-                    <p id="wind" class="after:content-['km/hr'] text-[0.8rem]"></p>
+                    <div class=" flex flex-col justify-center items-center col-span-3 lg:col-span-1 text-[0.8rem]">
+                        <img class="w-12 h-12" src="./icons8-sunrise-64.png" alt="" srcset="">
+                        Sunrise 
+                        <p class="text-[0.8rem]" id="sunrise"></p>
+    
+                    </div>
+    
+                    <div class=" flex flex-col justify-center items-center col-span-3 lg:col-span-1 text-[0.8rem]">
+                    <img class="w-12 h-12"  src="./icons8-sunset-48.png" alt="" srcset="">
+                    Sunset 
+                    <p class="text-[0.8rem]" id="sunset"></p>
+    
+    
+                    </div>
+                    
+               
+             
+                    <div class="flex flex-col justify-between items-center text-[0.8rem]
+                    col-span-2 lg:col-span-1
+                    ">
+                        <svg class="w-8 h-8 fill-[#ffd405]"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zm64 0c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256z"/></svg>
+                         
+                        UV Index
+                        <p class="text-[0.8rem]" id="uvindex"></p>
+                    </div>
+                    <div class="flex flex-col justify-between items-center text-[0.8rem]
+                    col-span-2 lg:col-span-1
+                    ">
+                        <svg class="w-8 h-8 fill-blue-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M192 480c-88.4 0-160-71.6-160-160c0-16.2 6.1-39.2 18.3-67.5c11.9-27.6 28.5-57.5 46.6-86.8c35.9-58 76.4-110.9 94.5-133.7h1.3c18.1 22.9 58.6 75.7 94.5 133.7c18.1 29.2 34.6 59.1 46.6 86.8C345.9 280.8 352 303.8 352 320c0 88.4-71.6 160-160 160zM0 320C0 426 86 512 192 512s192-86 192-192c0-91.2-130.2-262.3-166.6-308.3C211.4 4.2 202.5 0 192.9 0h-1.8c-9.6 0-18.5 4.2-24.5 11.7C130.2 57.7 0 228.8 0 320zm112 0c0-8.8-7.2-16-16-16s-16 7.2-16 16c0 61.9 50.1 112 112 112c8.8 0 16-7.2 16-16s-7.2-16-16-16c-44.2 0-80-35.8-80-80z"/></svg>
+                        Humidity
+                        <p class="text-[0.8rem]" id="humidity"></p>
+                    </div>
+                    <div class="flex flex-col justify-between items-center text-[0.8rem]
+                    col-span-2 lg:col-span-2
+                    ">
+                        <svg class="w-8 h-8 fill-gray-400"
+                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0 17.7 14.3 32 32 32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H352c53 0 96-43 96-96s-43-96-96-96H320c-17.7 0-32 14.3-32 32zm64 352c0 17.7 14.3 32 32 32h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H384c-17.7 0-32 14.3-32 32zM128 512h32c53 0 96-43 96-96s-43-96-96-96H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H160c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32z"/></svg>
+                        Wind
+                        <p id="wind" class="after:content-['km/hr'] text-[0.8rem]"></p>
+                    
+                    </div>
                 
-                </div>
+
+
             </div>
+            
         </div>
 
+        
+
+    </section>
+
+    <section class="pb-8 rounded-bl-[2rem] rounded-br-[2rem] md:rounded-tr-[2rem] md:rounded-bl-[0rem] md:py-8 bg-[#e7e6e6] px-4 lg:rounded-tr-[2rem] lg:rounded-br-[2rem]">
+        <div class="mt-4 ">
+            <h2 class="mb-4 text-blue-500 px-8">Weather Forcast</h2>
+            <div id="forcastcard" class="flex w-[100%] flex-col   md:flex-row md:flex-wrap gap-2 ">
+
+
+
+
+            </div>
+        </div>
     </section>
 
    
