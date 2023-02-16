@@ -22,6 +22,7 @@ const city= document.getElementById('city');
 const sunrise = document.getElementById('sunrise');
 const sunset = document.getElementById('sunset');
 const error= document.getElementById('error');
+const maincardmaxtemp= document.getElementById('maincardmaxtemp');
 
 
 function getweekday(date){
@@ -37,7 +38,7 @@ function forcastCard(date,imgsrc,maxtempindegree,mintempindegree){
 
 
     let maindiv= document.createElement('div');
-    maindiv.className=" w-[100%] px-8 rounded  grid  grid-cols-3 border-b  justify-around items-center  bg-[#ffff]";
+    maindiv.className=" w-[100%] px-8 rounded  grid  grid-cols-3 border-b  justify-around items-center  ";
 
     let day= document.createElement('p');
     day.innerText=getweekday(date);
@@ -51,12 +52,12 @@ function forcastCard(date,imgsrc,maxtempindegree,mintempindegree){
     let temp= document.createElement('p');
     
     let maxtemp= document.createElement('span');
-    maxtemp.className="after:content-['°/']";
+    maxtemp.className="after:content-['°c/']";
     maxtemp.innerText=maxtempindegree;
     temp.appendChild(maxtemp);
 
     let mintemp= document.createElement('span');
-    mintemp.className="after:content-['°'] opacity-50";
+    mintemp.className="after:content-['°c'] opacity-50";
     mintemp.innerText=mintempindegree;
     temp.appendChild(mintemp);
 
@@ -91,6 +92,7 @@ const getData = async (currentcity)=>{
 // console.log(jsondata);
 leftimg.src=jsondata.current.condition.icon;
 temp.innerText=jsondata.current.temp_c;
+
 //calculating week day
 let currentweekday=new Date(jsondata.location.localtime);
 // const options = { weekday: "long" };
@@ -116,7 +118,9 @@ sunset.innerText= astrodatajson.astronomy.astro.sunset;
 
 
 
-let forcastdata= await fetch(`${forcasturl}&q=${currentcity}&days=7`);
+let forcastdata= await fetch(`${forcasturl}&q=${currentcity}&days=8`,{
+    mode: 'cors'
+});
 
 let focastdatajson= await forcastdata.json();
 
@@ -125,10 +129,17 @@ loader.classList.add('hidden');
 
 const forcastdstsarray=focastdatajson.forecast.forecastday;
 
-
-forcastdstsarray.forEach((e)=>{
-    let newcard= forcastCard(e.date,e.day.condition.icon,e.day.maxtemp_c,e.day.mintemp_c);
+maincardmaxtemp.innerText=forcastdstsarray[0].day.maxtemp_c;
+maincardmintemp.innerText=forcastdstsarray[0].day.mintemp_c;
+forcastdstsarray.forEach((e,i)=>{
+    if(i==0){
+        
+    }else{
+        let newcard= forcastCard(e.date,e.day.condition.icon,e.day.maxtemp_c,e.day.mintemp_c);
     forcastcard.appendChild(newcard);
+
+    }
+    
 })
 
 

@@ -14,14 +14,17 @@
     <title>Weather</title>
 </head>
 <body class="min-w-[375px] max-w-[1440px] min-h-[100vh]
- px-[5%] font-['Open_Sans'] flex justify-center items-center bg-[#f5f5f5]">
-
+ px-[5%] font-['Open_Sans'] flex justify-center items-center bg-[#f5f5f5]
+ bg-[url('./weatherbcg.jpg')] bg-cover bg-center text-[white]
+ ">
+<!-- <img src="./valentin-muller-bWtd1ZyEy6w-unsplash.jpg" alt="" srcset=""> -->
 <!-- <h1 class="text-[white]">Weather </h1> -->
  
 <!-- bg-gradient-to-r from-[#fc5c7d] to-[#6a82fb] -->
 <!-- flex  flex-col md:flex-row -->
 <main class="relative  rounded-[2rem]  w-[100%]  my-8  
-  bg-[white] grid grid-cols-1 md:grid-cols-3 
+  bg-[white] grid grid-cols-1 md:grid-cols-3
+   bg-[url('./bcg-4.jpg')] bg-cover bg-center
 
 ">
 
@@ -34,14 +37,14 @@
  
   
 
-    <section class="w-[100%] py-4 md:py-8  md:rounded-tl-[2rem] md:rounded-bl-[2rem]  flex flex-col justify-center md:justify-around items-center border-b  "> 
+    <section class="w-[100%] py-4 md:py-8  md:rounded-tl-[2rem] md:rounded-bl-[2rem]  flex flex-col justify-center md:justify-around items-center border-b md:border-none  "> 
 
         <form  class="flex justify-center items-center gap-2 "  >
-        <input id="inputcity"  type="text" required placeholder="Search City...."   class=" block  px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+        <input id="inputcity"  type="text" required placeholder="Search City...."   class=" block  px-3 py-2 text-white  bg-transparent  rounded-md text-sm shadow-sm placeholder-slate-400 border
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
      
        "/>
-       <button id="searchcity" type="button" class="inline-block px-4  py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out"><i class="fa-solid fa-magnifying-glass"></i></button>
+       <button id="searchcity" type="button" class="inline-block px-4  py-2.5 bg-transparent  font-medium text-xs leading-tight  rounded  border "><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <p class="text-red-500" id="error"></p>
 
@@ -56,6 +59,9 @@
             <div class="flex flex-col justify-center items-start md:items-center">
                 <h2 class="text-[2rem] text-blue-500 after:content-['°c']" id="temp"></h2>
                 <p  id="city"></p>
+                <p> <span class="after:content-['°c/'] text-[0.8rem]" id="maincardmaxtemp">
+                </span> 
+                <span class="after:content-['°c'] text-[0.8rem] opacity-60" id="maincardmintemp"></span></p>
                
     
             </div>
@@ -87,12 +93,12 @@
 
     </section>
 
-    <section class="w-[100%] md:py-8   bg-[#e7e6e6]   py-4 px-8 flex flex-col ">
+    <section class="w-[100%] md:py-8     py-4 px-8 flex flex-col md:border-l md:border-r ">
 
         
 
         <div>
-            <h2 class="mt-2 text-blue-500">Todays Highlight</h2>
+            <h2 class="mt-2 text-cyan-500 text-[1.3rem] md:text-center tracking-widest">Todays Highlight</h2>
             <!-- <div class="lg:flex lg:justify-evenly lg:items-center">
                 <div class=" flex justify-around items-center mt-4">
                     <div class=" flex flex-col justify-center items-center">
@@ -190,10 +196,10 @@
         
 
     </section>
-
-    <section class="pb-8 rounded-bl-[2rem] rounded-br-[2rem] md:rounded-tr-[2rem] md:rounded-bl-[0rem] md:py-8 bg-[#e7e6e6] px-4 lg:rounded-tr-[2rem] lg:rounded-br-[2rem]">
+    <!-- bg-[#e7e6e6] -->
+    <section class="pb-8 rounded-bl-[2rem] rounded-br-[2rem] md:rounded-tr-[2rem] md:rounded-bl-[0rem] md:py-8  px-4 lg:rounded-tr-[2rem] lg:rounded-br-[2rem]">
         <div class="mt-4 ">
-            <h2 class="mb-4 text-blue-500 px-8">Weather Forcast</h2>
+            <h2 class="mb-4 text-cyan-500 md:text-center  text-[1.3rem] px-8 font-[500] tracking-widest ">Weather Forcast</h2>
             <div id="forcastcard" class="flex w-[100%] flex-col   md:flex-row md:flex-wrap gap-2 ">
 
 
